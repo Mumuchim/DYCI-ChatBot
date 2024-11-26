@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>DYChat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="sidebar close">
+    <div class="logo-details">
+        <i class='bx bxl-c-plus-plus'></i>
+        <span class="logo_name">FAQs</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-grid-alt' ></i>
+                    <!-- IF U WANT TO CHANGE ICON -->
+                    <span class="link_name">Enrollment</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Enrollment</a></li>
+                <!-- OLD STUDENTS LINK -->
+                <li><a href="#" id="forOldStudentsLink">Old Students</a></li>
+                <!-- NEW STUDENTS LINK -->
+                <li><a href="#" id="forFirstYearStudentsLink">Incoming 1st Year</a></li>
+                <li><a href="#" id="forTransfereeLink">Transferee Student</a></li>
+                <li><a href="#" id="forShiftingLink">Shift Student</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection' ></i>
+                    <span class="link_name">Discounts</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Discount</a></li>
+                <li><a href="#" id="freshmen_discount_link">Freshmen</a></li>
+                <li><a href="#" id="alumni_discount_link">DYCI HS Alumni</a></li>
+                <li><a href="#" id="soloparent_discount_link">Solo-Parent </a></li>
+                <li><a href="#" id="sibling_discount_link">Sibling </a></li>
+                <li><a href="#" id="employee_discount_link">DYCI Employee</a></li>
+                <li><a href="#" id="full_discount_link">Full Payment</a></li>
+                <li><a href="#" id="student_assistant_link">Student Assistant</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-book-alt' ></i>
+                    <span class="link_name">Promisory</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Promisory</a></li>
+                <li><a href="#" id="get_promi_link">How to Get</a></li>
+                <li><a href="#" id="promi_no_pay_link">No Payment w/ Exam</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2' ></i>
+                    <span class="link_name">Scholarship</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Scholarship</a></li>
+                <li><a href="#" id="full_academic_link">Full Academic</a></li>
+                <li><a href="#" id="partial_academic_link">Partial Academic</a></li>
+                <li><a href="#" id="cultural_athletics_link">Cultural & Athletics</a></li>
+                <li><a href="#" id="brass_band_link">Brass Band</a></li>
+                <li><a href="#" id="government_endorsed_link">Government-Endorsed</a></li>
+                <!-- <li><a href="#" id="scholar_irregular_link">For Irregular Students</a></li>
+                <li><a href="#" id="scholarship_inc_link">Scholarship w/ Inc.</a></li> -->
+            </ul>
+        </li>
+        <div class="profile-details">
+            <div class="profile-content">
+                <!-- <img src="static\images\profile.jpg" alt="profileImg"> -->
+            </div>
+            <div class="name-job">
+                <div class="profile_name">{{session.name}}</div>
+            </div>
+            <a href="#" onclick="confirmLogout()" class="logout-link"><i class='bx bx-log-out'></i></a>
+        </div>
+    </ul>
+</div>
+
+<section class="home-section">
+    <div class="home-content">
+        <i class='bx bx-menu' ></i>
+        <span class="text">DYChat</span>
+    </div>
+    <div class="chatbox__support">
+        <div class="chatbox__messages">
+        </div>
+        <div class="chatbox__footer">
+            <button class="chatbox__add--footer clear__button"><i class='bx bxs-trash-alt' alt="clear"></i></button>
+            <input type="text" id="inputField" placeholder="Write a message...">
+            <button class="chatbox__send--footer send__button"><i class='bx bxs-send' alt="send"></i></button>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    function confirmLogout() {
+        if (confirm("Are you sure you want to log out?")) {
+            window.location.href = "{{ url_for('login') }}";
+        }
+    }
+</script>
+
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
